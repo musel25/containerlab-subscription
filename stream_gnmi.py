@@ -63,6 +63,20 @@ if __name__ == "__main__":
         yang_path=nokia_native_path
     )
     
+
+    # # ---------------------------------------------------------
+    # # SCENARIO B: Running against EVE-NG
+    # # Target is reachable via the IP address assigned to mgmt0 
+    # # from your local network DHCP server (via Cloud0)
+    # # ---------------------------------------------------------
+    # stream_dynamic_telemetry(
+    #     host="192.168.1.105", # <--- ONLY THIS CHANGES! (Your EVE-NG VM's Management IP)
+    #     port=57400, 
+    #     username="admin", 
+    #     password="NokiaSrl1!", 
+    #     yang_path="/interface[name=mgmt0]/statistics"
+    # )
+
     # Example 2: Agent decides to use an OPENCONFIG path (if we were targeting Cisco, for example)
     # RAG lookup complete: Fallback to vendor-neutral OpenConfig.
     # openconfig_path = "/interfaces/interface[name=MgmtEth0/RP0/CPU0/0]/state/counters"

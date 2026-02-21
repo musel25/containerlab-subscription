@@ -18,3 +18,28 @@ outputs:
   prom-out:
     type: prometheus
     listen: :9804
+
+
+# targets:
+#   # Containerlab names the container based on the topology and node name
+#   clab-quickstart-lab-xr1:
+#     address: clab-quickstart-lab-xr1:57400
+#     username: cisco
+#     password: cisco123
+#     # CRITICAL: Set to true. We will configure XR to use plaintext gRPC 
+#     # to avoid complex certificate generation in a lab environment.
+#     insecure: true 
+
+# subscriptions:
+#   mgmt-stats:
+#     paths:
+#       # The vendor-neutral OpenConfig path, targeting the XR management interface
+#       - /interfaces/interface[name=MgmtEth0/RP0/CPU0/0]/state/counters
+#     mode: stream
+#     stream-mode: sample
+#     sample-interval: 2s
+
+# outputs:
+#   prom-out:
+#     type: prometheus
+#     listen: :9804
