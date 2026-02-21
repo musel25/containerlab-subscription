@@ -9,6 +9,21 @@
 #   "openconfig_fallback": "/interfaces/interface[name=mgmt0]/state/counters"
 # }
 
+
+# {
+#   "matched_intent": "telemetry_bgp_protocol",
+#   "device_os": "ios_xr",
+#   "recommended_yang_type": "openconfig",
+#   "yang_paths": [
+#     "/network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state",
+#     "/network-instances/network-instance/protocols/protocol/bgp/global/state"
+#   ],
+#   "agent_action": "gnmi_subscribe",
+#   "target_port": 57500,
+#   "sample_interval": "30s"
+# }
+
+
 from pygnmi.client import gNMIclient
 
 # Notice we replaced 'interface_name' with 'yang_path'
