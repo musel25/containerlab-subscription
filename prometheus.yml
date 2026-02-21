@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 2s
+
+scrape_configs:
+  - job_name: 'gnmic-telemetry'
+    static_configs:
+      # We use the internal Containerlab DNS name to find the collector
+      - targets: ['clab-quickstart-lab-gnmic:9804']

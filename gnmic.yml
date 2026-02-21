@@ -1,0 +1,20 @@
+targets:
+  clab-quickstart-lab-r1:
+    address: clab-quickstart-lab-r1:57400
+    username: admin
+    password: NokiaSrl1!
+    insecure: false
+    skip-verify: true
+
+subscriptions:
+  mgmt-stats:
+    paths:
+      - /interface[name=mgmt0]/statistics
+    mode: stream
+    stream-mode: sample
+    sample-interval: 2s
+
+outputs:
+  prom-out:
+    type: prometheus
+    listen: :9804

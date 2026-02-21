@@ -1,0 +1,39 @@
+# name: quickstart-lab
+# topology:
+#   nodes:
+#     r1:
+#       kind: nokia_srlinux
+#       image: ghcr.io/nokia/srlinux:latest  # Public, free image!
+
+
+name: quickstart-lab
+topology:
+  nodes:
+    # 1. The Router
+    r1:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:latest
+
+    # 2. The Telemetry Collector
+    gnmic:
+      kind: linux
+      image: ghcr.io/openconfig/gnmic:latest
+      binds:
+        - ./gnmic.yml:/gnmic.yml:ro
+      cmd: --config /gnmic.yml subscribe
+
+    # 3. The Time-Series Database
+    prometheus:
+      kind: linux
+      image: prom/prometheus:latest
+      binds:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      ports:
+        - "9090:9090"
+
+    # 4. The Visualization Dashboard
+    grafana:
+      kind: linux
+      image: grafana/grafana:latest
+      ports:
+        - "3000:3000"
